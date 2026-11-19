@@ -7,7 +7,7 @@
 
     <meta
         name="description"
-        content="Kiran Navnath Waghmode — AI Enthusiast, Computer Science Engineering Student and Software Developer."
+        content="Kiran Navnath Waghmode — Computer Science Engineering student exploring AI, software development and cloud technologies."
     >
 
     <meta name="theme-color" content="#07070b">
@@ -21,47 +21,39 @@
         ========================================================= */
 
         :root {
-            --bg: #f7f9fc;
-            --bg-soft: #eef3f9;
-
-            --surface: rgba(255,255,255,.76);
+            /* Clean, luminous interface with an intelligent-system accent */
+            --bg: #f4f7ff;
+            --bg-soft: #eaf0ff;
+            --surface: rgba(255,255,255,.72);
             --surface-solid: #ffffff;
-            --surface-2: #f1f5fb;
-
-            --text: #101522;
-            --text-secondary: #5d687a;
-            --text-muted: #7b8799;
-
-            --primary: #2563eb;
-            --primary-2: #06b6d4;
-            --accent: #7c3aed;
-
-            --border: rgba(15,23,42,.09);
-            --shadow: rgba(15,23,42,.10);
-
-            --nav-bg: rgba(247,249,252,.72);
+            --surface-2: #edf2ff;
+            --text: #10172b;
+            --text-secondary: #596681;
+            --text-muted: #77839d;
+            --primary: #6257f5;
+            --primary-2: #00aeca;
+            --accent: #8b5cf6;
+            --border: rgba(65,79,135,.13);
+            --shadow: rgba(43,55,110,.12);
+            --nav-bg: rgba(244,247,255,.76);
         }
 
         body.dark {
-            --bg: #06060a;
-            --bg-soft: #0b0b12;
-
-            --surface: rgba(16,15,25,.78);
-            --surface-solid: #101019;
-            --surface-2: #171621;
-
-            --text: #f7f5ff;
-            --text-secondary: #aaa7b8;
-            --text-muted: #817d90;
-
-            --primary: #9b8cff;
-            --primary-2: #22d3ee;
+            /* Deep midnight / electric indigo / cyan agentic palette */
+            --bg: #070b18;
+            --bg-soft: #0b1225;
+            --surface: rgba(14,23,46,.76);
+            --surface-solid: #0e172e;
+            --surface-2: #121f3d;
+            --text: #f1f5ff;
+            --text-secondary: #a8b5d3;
+            --text-muted: #7e8cac;
+            --primary: #8b83ff;
+            --primary-2: #35d9ef;
             --accent: #c084fc;
-
-            --border: rgba(255,255,255,.085);
-            --shadow: rgba(0,0,0,.42);
-
-            --nav-bg: rgba(6,6,10,.72);
+            --border: rgba(148,163,255,.15);
+            --shadow: rgba(0,0,0,.46);
+            --nav-bg: rgba(7,11,24,.76);
         }
 
 
@@ -136,21 +128,31 @@
             pointer-events: none;
 
             background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(37,99,235,.10),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(124,58,237,.09),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 50% 85%,
-                    rgba(6,182,212,.07),
-                    transparent 30%
-                );
+                radial-gradient(ellipse at 12% 18%, rgba(98,87,245,.16), transparent 34%),
+                radial-gradient(ellipse at 88% 16%, rgba(0,174,202,.13), transparent 31%),
+                radial-gradient(ellipse at 52% 88%, rgba(139,92,246,.12), transparent 36%),
+                radial-gradient(ellipse at 50% 45%, rgba(53,217,239,.035), transparent 58%);
+            background-size: 140% 140%;
+            animation: ambientDrift 24s ease-in-out infinite alternate;
+            transition: opacity .4s ease;
+        }
+
+        @keyframes ambientDrift {
+            0% { background-position: 0% 0%, 100% 0%, 50% 100%, 50% 50%; }
+            100% { background-position: 12% 18%, 88% 12%, 42% 86%, 55% 45%; }
+        }
+
+        body.dark .background-overlay {
+            background:
+                radial-gradient(ellipse at 12% 18%, rgba(112,94,255,.22), transparent 34%),
+                radial-gradient(ellipse at 88% 16%, rgba(25,211,239,.16), transparent 31%),
+                radial-gradient(ellipse at 52% 88%, rgba(168,85,247,.14), transparent 36%),
+                radial-gradient(ellipse at 50% 45%, rgba(53,217,239,.045), transparent 58%);
+            background-size: 140% 140%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .background-overlay { animation: none; }
         }
 
         .grid-overlay {
@@ -161,7 +163,7 @@
 
             pointer-events: none;
 
-            opacity: .20;
+            opacity: .27;
 
             background-image:
                 linear-gradient(
@@ -1581,6 +1583,98 @@
 
         }
 
+
+
+        /* =========================================================
+           WANDERING MASCOT - ORIGINAL PORTFOLIO COMPANION
+        ========================================================= */
+        .kd-guide {
+            position: fixed;
+            left: 3vw;
+            bottom: 18px;
+            z-index: 1000;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            font-family: inherit;
+            animation: mascotWander 28s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .kd-guide:hover, .kd-guide:focus-within { animation-play-state: paused; }
+        @keyframes mascotWander {
+            0% { transform: translateX(0); }
+            22% { transform: translateX(17vw); }
+            48% { transform: translateX(39vw); }
+            73% { transform: translateX(61vw); }
+            100% { transform: translateX(min(72vw, 850px)); }
+        }
+        .guide-mascot-button {
+            pointer-events: auto;
+            width: 82px;
+            height: 94px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            filter: drop-shadow(0 7px 5px rgba(0,0,0,.18));
+            transform-origin: 50% 100%;
+            animation: mascotBob .55s ease-in-out infinite alternate;
+        }
+        .guide-mascot-button:hover { animation-play-state: paused; transform: scale(1.08) rotate(-4deg); }
+        .guide-mascot-button:focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; border-radius: 24px; }
+        @keyframes mascotBob { from { translate: 0 0; } to { translate: 0 -3px; } }
+        .guide-mascot { width: 82px; height: 94px; overflow: visible; }
+        .guide-mascot .antenna { transform-origin: 40px 25px; animation: antennaWiggle 1.2s ease-in-out infinite alternate; }
+        @keyframes antennaWiggle { from { rotate: -9deg; } to { rotate: 10deg; } }
+        .guide-mascot .leg { transform-box: fill-box; transform-origin: top center; animation: legStep .22s ease-in-out infinite alternate; }
+        .guide-mascot .leg:nth-of-type(even) { animation-delay: -.22s; }
+        @keyframes legStep { from { rotate: -18deg; } to { rotate: 18deg; } }
+        .guide-speech {
+            pointer-events: auto;
+            width: min(235px, calc(100vw - 125px));
+            padding: 10px 12px;
+            margin-bottom: 57px;
+            border: 1px solid var(--border);
+            border-radius: 15px 15px 15px 4px;
+            background: var(--surface-solid);
+            color: var(--text);
+            box-shadow: 0 10px 30px var(--shadow);
+            font-size: .78rem;
+            line-height: 1.4;
+            opacity: 1;
+            transition: opacity .2s ease, transform .2s ease;
+        }
+        .guide-speech strong { display: block; color: var(--primary); margin-bottom: 3px; font-size: .8rem; }
+        .guide-speech p { margin: 0 0 7px; color: var(--text-secondary); }
+        .guide-speech a { color: var(--primary); font-weight: 700; text-decoration: none; }
+        .guide-speech a:hover { text-decoration: underline; }
+        .kd-guide.is-quiet .guide-speech { opacity: .0; transform: translateY(8px); pointer-events: none; }
+        .guide-hide {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            width: 22px;
+            height: 22px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--surface-solid);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1;
+            pointer-events: auto;
+        }
+        @media (max-width: 600px) {
+            .kd-guide { left: 8px; bottom: 10px; gap: 4px; }
+            .guide-mascot-button, .guide-mascot { width: 68px; height: 80px; }
+            .guide-speech { width: min(205px, calc(100vw - 90px)); margin-bottom: 47px; font-size: .73rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .background-overlay { animation: none !important; }
+            .kd-guide, .guide-mascot-button, .guide-mascot .antenna, .guide-mascot .leg { animation: none !important; }
+        }
+
     </style>
 </head>
 
@@ -1638,6 +1732,10 @@
                 </li>
 
                 <li>
+                    <a href="#achievements">Achievements</a>
+                </li>
+
+                <li>
                     <a href="#contact">Contact</a>
                 </li>
 
@@ -1687,7 +1785,7 @@
 
                             <span class="status-dot"></span>
 
-                            Open to learning, building & opportunities
+                            Building with AI, software & curiosity
 
                         </div>
 
@@ -1713,7 +1811,7 @@
 
                         <p class="hero-description">
 
-                            Computer Science Engineering student and AI
+                            Computer Science Engineering student interested in AI/ML, software development and cloud technologies. I enjoy learning by building practical applications, experimenting with ideas and turning concepts into useful digital experiences. My work spans educational AI tools, voice interfaces and web applications.
                             enthusiast exploring Artificial Intelligence,
                             Machine Learning, software development and
                             intelligent digital experiences.
@@ -2244,8 +2342,8 @@
                     </h2>
 
                     <p>
-                        Projects where I experiment with AI, software,
-                        automation and real-world problem solving.
+                        Projects where I explore AI, software development and practical
+                        problem solving through hands-on implementation.
                     </p>
 
                 </div>
@@ -2330,7 +2428,7 @@
                         </span>
 
                         <h3>
-                            AI Quiz Generator
+                            Quizverse AI — AI Quiz Generator
                         </h3>
 
                         <p>
@@ -2508,6 +2606,44 @@
 
                     </article>
 
+
+                    <!-- SENTIMENT ANALYSIS -->
+
+                    <article class="project-card reveal">
+
+                        <span class="project-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Sentiment Analysis Tool
+                        </h3>
+
+                        <p>
+                            A practical AI project focused on analysing text
+                            and identifying the sentiment expressed in user
+                            input. Developed as part of hands-on internship
+                            task work.
+                        </p>
+
+                        <div class="project-features">
+
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Text Analysis</span>
+                            <span class="tag">AI</span>
+
+                        </div>
+
+                        <div class="project-footer">
+
+                            <span>Internship Task</span>
+                            <span>Completed</span>
+
+                        </div>
+
+                    </article>
+
                 </div>
 
             </div>
@@ -2569,6 +2705,40 @@
                                 working on AI-related tasks and project-based
                                 problem solving while strengthening practical
                                 understanding of emerging AI technologies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SYNTECXHUB INTERNSHIP -->
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-card">
+
+                            <h3>
+                                Artificial Intelligence Intern
+                            </h3>
+
+                            <div class="timeline-company">
+                                Syntecxhub
+                            </div>
+
+                            <div class="timeline-date">
+                                Internship Certificate Shared
+                            </div>
+
+                            <p>
+                                Completed practical internship work in
+                                Artificial Intelligence and shared the
+                                internship completion certificate on
+                                LinkedIn. This experience added hands-on
+                                exposure to applying AI concepts through
+                                assigned technical tasks.
                             </p>
 
                         </div>
@@ -2909,6 +3079,58 @@
 
 
         <!-- =====================================================
+             ACHIEVEMENTS
+        ====================================================== -->
+
+        <section id="achievements">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-label">
+                        Achievements & Recognition
+                    </span>
+
+                    <h2>
+                        Milestones along the way.
+                    </h2>
+
+                    <p>
+                        A few moments that recognize my participation,
+                        effort and continued growth in technology.
+                    </p>
+
+                </div>
+
+                <div class="cert-grid">
+
+                    <div class="cert-card reveal">
+
+                        <small>
+                            SHINCHAN ONLINE HACKATHON 2026
+                        </small>
+
+                        <h3>
+                            27th Rank — Online Hackathon
+                        </h3>
+
+                        <p>
+                            Secured 27th position among 200+ participants.
+                            The shared certificate also recognizes a
+                            Top 50 achievement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
              INTERESTS
         ====================================================== -->
 
@@ -3089,6 +3311,47 @@
     </footer>
 
 
+
+
+    <!-- Wandering mascot: a small original cartoon companion that guides attention -->
+    <aside class="kd-guide" id="kdGuide" aria-label="Wandering portfolio companion">
+        <div class="guide-speech" id="guideSpeech" aria-live="polite">
+            <strong id="guideSpeechTitle">Psst… I'm Kiko!</strong>
+            <p id="guideSpeechText">I'll wander around and point out things worth exploring. Tap me anytime!</p>
+            <a id="guideSpeechLink" href="#projects">Let's explore projects →</a>
+            <button class="guide-hide" id="guideHide" type="button" aria-label="Hide companion">×</button>
+        </div>
+        <button class="guide-mascot-button" id="guideMascot" type="button" aria-label="Ask Kiko for a portfolio tip">
+            <svg class="guide-mascot" viewBox="0 0 100 112" role="img" aria-label="A cheerful little green bug mascot">
+                <!-- antennae -->
+                <g class="antenna" fill="none" stroke="#315d36" stroke-width="3.5" stroke-linecap="round">
+                    <path d="M39 29 Q27 12 20 13"/><path d="M61 29 Q73 11 82 15"/>
+                    <circle cx="19" cy="12" r="4" fill="#f6c85f" stroke="none"/><circle cx="83" cy="14" r="4" fill="#f6c85f" stroke="none"/>
+                </g>
+                <!-- legs -->
+                <g fill="none" stroke="#315d36" stroke-width="4" stroke-linecap="round">
+                    <path class="leg" d="M31 68 L17 78 L10 88"/><path class="leg" d="M68 68 L82 78 L89 88"/>
+                    <path class="leg" d="M31 78 L20 91 L17 101"/><path class="leg" d="M68 78 L80 91 L83 101"/>
+                    <path class="leg" d="M39 82 L35 96 L31 103"/><path class="leg" d="M60 82 L65 96 L69 103"/>
+                </g>
+                <!-- body and shell -->
+                <ellipse cx="50" cy="71" rx="27" ry="31" fill="#72bd65" stroke="#315d36" stroke-width="3"/>
+                <path d="M50 43 C34 45 27 59 27 73 C28 88 37 98 50 101 Z" fill="#8ed27c" opacity=".9"/>
+                <path d="M50 43 C66 45 73 59 73 73 C72 88 63 98 50 101 Z" fill="#4f9c55" opacity=".9"/>
+                <path d="M50 45 V98" stroke="#315d36" stroke-width="2" opacity=".65"/>
+                <!-- head -->
+                <ellipse cx="50" cy="37" rx="28" ry="25" fill="#83cf70" stroke="#315d36" stroke-width="3"/>
+                <ellipse cx="40" cy="35" rx="6" ry="8" fill="#fff"/><ellipse cx="60" cy="35" rx="6" ry="8" fill="#fff"/>
+                <circle cx="42" cy="37" r="3" fill="#1f2937"/><circle cx="58" cy="37" r="3" fill="#1f2937"/>
+                <path d="M43 49 Q50 56 58 48" fill="none" stroke="#315d36" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="29" cy="45" r="4" fill="#f28c83" opacity=".8"/><circle cx="71" cy="45" r="4" fill="#f28c83" opacity=".8"/>
+                <path d="M23 62 Q12 55 11 48" fill="none" stroke="#315d36" stroke-width="3" stroke-linecap="round"/>
+                <path d="M77 62 Q88 55 89 48" fill="none" stroke="#315d36" stroke-width="3" stroke-linecap="round"/>
+                <path d="M8 47 L12 42 M89 47 L93 42" stroke="#315d36" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </aside>
+
     <!-- =========================================================
          JAVASCRIPT
     ========================================================== -->
@@ -3204,407 +3467,210 @@
 
 
         /* =========================================================
-           AGENTIC CANVAS
+           AGENTIC CANVAS — LIVING NETWORK
         ========================================================== */
+        (() => {
+            const canvas = document.getElementById("agentCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
 
-        const canvas =
-            document.getElementById("agentCanvas");
+            let width = 0, height = 0, dpr = 1, nodes = [], particles = [];
+            let pointer = { x: -1000, y: -1000, active: false };
+            let frame = 0;
+            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        const ctx =
-            canvas.getContext("2d");
-
-
-        let width;
-        let height;
-
-        let nodes = [];
-        let particles = [];
-
-        let mouse = {
-            x: null,
-            y: null
-        };
-
-
-        function resizeCanvas() {
-
-            width =
-                canvas.width =
-                window.innerWidth *
-                window.devicePixelRatio;
-
-            height =
-                canvas.height =
-                window.innerHeight *
-                window.devicePixelRatio;
-
-            canvas.style.width =
-                window.innerWidth + "px";
-
-            canvas.style.height =
-                window.innerHeight + "px";
-
-            ctx.setTransform(
-                window.devicePixelRatio,
-                0,
-                0,
-                window.devicePixelRatio,
-                0,
-                0
-            );
-
-            createNetwork();
-
-        }
-
-
-        function createNetwork() {
-
-            nodes = [];
-
-            particles = [];
-
-            const count =
-                Math.min(
-                    75,
-                    Math.floor(
-                        window.innerWidth / 18
-                    )
-                );
-
-
-            for (let i = 0; i < count; i++) {
-
-                nodes.push({
-
-                    x:
-                        Math.random() *
-                        window.innerWidth,
-
-                    y:
-                        Math.random() *
-                        window.innerHeight,
-
-                    vx:
-                        (Math.random() - .5)
-                        * .25,
-
-                    vy:
-                        (Math.random() - .5)
-                        * .25,
-
-                    radius:
-                        Math.random() * 1.7 + 1
-
-                });
-
+            function resizeCanvas() {
+                dpr = Math.min(window.devicePixelRatio || 1, 1.7);
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = Math.round(width * dpr);
+                canvas.height = Math.round(height * dpr);
+                canvas.style.width = width + "px";
+                canvas.style.height = height + "px";
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                createNetwork();
             }
 
-
-            for (let i = 0; i < 18; i++) {
-
-                particles.push({
-
-                    x:
-                        Math.random() *
-                        window.innerWidth,
-
-                    y:
-                        Math.random() *
-                        window.innerHeight,
-
-                    vx:
-                        (Math.random() - .5)
-                        * .65,
-
-                    vy:
-                        (Math.random() - .5)
-                        * .65,
-
-                    size:
-                        Math.random() * 2 + .5
-
-                });
-
+            function createNetwork() {
+                nodes = [];
+                particles = [];
+                const count = Math.min(105, Math.max(42, Math.floor(width / 13)));
+                for (let i = 0; i < count; i++) {
+                    nodes.push({
+                        x: Math.random() * width, y: Math.random() * height,
+                        vx: (Math.random() - .5) * .34, vy: (Math.random() - .5) * .34,
+                        radius: Math.random() * 1.5 + 1, phase: Math.random() * Math.PI * 2
+                    });
+                }
+                for (let i = 0; i < Math.min(34, Math.floor(width / 24)); i++) {
+                    particles.push({
+                        x: Math.random() * width, y: Math.random() * height,
+                        vx: (Math.random() - .5) * .85, vy: (Math.random() - .5) * .85,
+                        size: Math.random() * 1.6 + .6, alpha: Math.random() * .5 + .35
+                    });
+                }
             }
 
-        }
+            function palette() {
+                const dark = document.body.classList.contains("dark");
+                return dark
+                    ? { node: "139,131,255", line: "91,151,255", cyan: "53,217,239", glow: "139,131,255" }
+                    : { node: "98,87,245", line: "86,115,220", cyan: "0,174,202", glow: "98,87,245" };
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const c = palette();
+                frame += reducedMotion ? 0 : .012;
+                const linkDistance = width < 700 ? 112 : 158;
+
+                // Gentle pointer field: nearby nodes lean toward the cursor.
+                nodes.forEach(node => {
+                    if (!reducedMotion) {
+                        node.x += node.vx; node.y += node.vy;
+                        node.phase += .018;
+                        if (node.x < -10 || node.x > width + 10) node.vx *= -1;
+                        if (node.y < -10 || node.y > height + 10) node.vy *= -1;
+                        if (pointer.active) {
+                            const dx = pointer.x - node.x, dy = pointer.y - node.y;
+                            const dist = Math.hypot(dx, dy) || 1;
+                            if (dist < 190) {
+                                const force = (1 - dist / 190) * .012;
+                                node.vx += dx / dist * force;
+                                node.vy += dy / dist * force;
+                            }
+                        }
+                        node.vx = Math.max(-.48, Math.min(.48, node.vx));
+                        node.vy = Math.max(-.48, Math.min(.48, node.vy));
+                    }
+                });
+
+                // Network links with occasional moving data pulses.
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const a = nodes[i], b = nodes[j];
+                        const dx = b.x - a.x, dy = b.y - a.y;
+                        const dist = Math.hypot(dx, dy);
+                        if (dist < linkDistance) {
+                            const opacity = (1 - dist / linkDistance) * (document.body.classList.contains("dark") ? .24 : .16);
+                            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+                            ctx.strokeStyle = `rgba(${c.line},${opacity})`;
+                            ctx.lineWidth = .65; ctx.stroke();
+                            const pulse = (frame * .34 + i * .173 + j * .071) % 1;
+                            if (!reducedMotion && (i + j) % 7 === 0) {
+                                const px = a.x + dx * pulse, py = a.y + dy * pulse;
+                                ctx.beginPath(); ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+                                ctx.fillStyle = `rgba(${c.cyan},${.75 * (1 - dist / linkDistance)})`;
+                                ctx.shadowBlur = 9; ctx.shadowColor = `rgba(${c.cyan},.8)`;
+                                ctx.fill(); ctx.shadowBlur = 0;
+                            }
+                        }
+                    }
+                }
+
+                // Glowing nodes.
+                nodes.forEach(node => {
+                    const pulse = reducedMotion ? 1 : .72 + Math.sin(frame * 2.2 + node.phase) * .22;
+                    const radius = node.radius * pulse;
+                    const glow = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 13);
+                    glow.addColorStop(0, `rgba(${c.glow},.24)`);
+                    glow.addColorStop(1, `rgba(${c.glow},0)`);
+                    ctx.beginPath(); ctx.arc(node.x, node.y, 13, 0, Math.PI * 2);
+                    ctx.fillStyle = glow; ctx.fill();
+                    ctx.beginPath(); ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${c.node},${.58 + pulse * .25})`; ctx.fill();
+                });
+
+                // Free-floating cyan data particles.
+                particles.forEach(p => {
+                    if (!reducedMotion) {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < 0 || p.x > width) p.vx *= -1;
+                        if (p.y < 0 || p.y > height) p.vy *= -1;
+                    }
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${c.cyan},${p.alpha})`;
+                    ctx.shadowBlur = 8; ctx.shadowColor = `rgba(${c.cyan},.55)`;
+                    ctx.fill(); ctx.shadowBlur = 0;
+                });
+
+                // Subtle cursor halo and expanding interaction ring.
+                if (pointer.active && !reducedMotion) {
+                    const halo = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 145);
+                    halo.addColorStop(0, `rgba(${c.cyan},.075)`);
+                    halo.addColorStop(1, `rgba(${c.cyan},0)`);
+                    ctx.fillStyle = halo; ctx.fillRect(pointer.x - 145, pointer.y - 145, 290, 290);
+                    ctx.beginPath(); ctx.arc(pointer.x, pointer.y, 25 + Math.sin(frame * 2) * 3, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(${c.cyan},.17)`; ctx.lineWidth = 1; ctx.stroke();
+                }
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener("pointermove", event => {
+                pointer.x = event.clientX; pointer.y = event.clientY; pointer.active = true;
+                document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
+                document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
+            }, { passive: true });
+            window.addEventListener("pointerleave", () => { pointer.active = false; });
+            window.addEventListener("resize", resizeCanvas, { passive: true });
+            resizeCanvas();
+            draw();
+        })();
 
 
-        function getColors() {
+                /* =========================================================
+           KIKO - WANDERING PORTFOLIO COMPANION
+        ========================================================= */
+        (() => {
+            const mascot = document.getElementById("guideMascot");
+            const speech = document.getElementById("guideSpeech");
+            const title = document.getElementById("guideSpeechTitle");
+            const message = document.getElementById("guideSpeechText");
+            const link = document.getElementById("guideSpeechLink");
+            const hide = document.getElementById("guideHide");
+            const wrapper = document.getElementById("kdGuide");
+            if (!mascot || !speech || !wrapper) return;
 
-            const dark =
-                document.body.classList.contains("dark");
-
-
-            return {
-
-                node:
-                    dark
-                        ? "rgba(155,140,255,.55)"
-                        : "rgba(37,99,235,.32)",
-
-                line:
-                    dark
-                        ? "rgba(155,140,255,.09)"
-                        : "rgba(37,99,235,.07)",
-
-                particle:
-                    dark
-                        ? "rgba(34,211,238,.7)"
-                        : "rgba(6,182,212,.45)"
-
+            const tips = {
+                home: ["Welcome!", "Start here to get a quick idea of who I am and what I build.", "#about", "Get to know me →"],
+                about: ["A little about me", "I'm a CSE student exploring AI, software development and cloud technologies.", "#skills", "See my skills →"],
+                skills: ["Tech toolkit!", "Here are the tools and technologies I use while learning and building.", "#projects", "Explore my projects →"],
+                projects: ["The fun part!", "Take a look at the projects I've been building and experimenting with.", "#experience", "See my experience →"],
+                experience: ["Learning by doing", "This section highlights internships and practical experience.", "#certifications", "View certifications →"],
+                certifications: ["Milestones", "These are some of the courses and certifications from my learning journey.", "#achievements", "See achievements →"],
+                achievements: ["A proud moment!", "Here are a few milestones and recognitions along the way.", "#contact", "Get in touch →"],
+                contact: ["Let's connect!", "Have an idea, opportunity or feedback? I'd love to hear from you.", "#contact", "Contact me →"]
             };
-
-        }
-
-
-        function animateCanvas() {
-
-            ctx.clearRect(
-                0,
-                0,
-                window.innerWidth,
-                window.innerHeight
-            );
-
-
-            const colors =
-                getColors();
-
-
-            /* -----------------------------
-               NODES
-            ----------------------------- */
-
-            nodes.forEach(node => {
-
-                node.x += node.vx;
-                node.y += node.vy;
-
-
-                if (
-                    node.x < 0 ||
-                    node.x > window.innerWidth
-                ) {
-                    node.vx *= -1;
-                }
-
-
-                if (
-                    node.y < 0 ||
-                    node.y > window.innerHeight
-                ) {
-                    node.vy *= -1;
-                }
-
-
-                if (mouse.x !== null) {
-
-                    const dx =
-                        mouse.x - node.x;
-
-                    const dy =
-                        mouse.y - node.y;
-
-                    const distance =
-                        Math.sqrt(
-                            dx * dx +
-                            dy * dy
-                        );
-
-
-                    if (distance < 150) {
-
-                        node.x -=
-                            dx / distance * .15;
-
-                        node.y -=
-                            dy / distance * .15;
-
-                    }
-
-                }
-
+            const showTip = (key) => {
+                const tip = tips[key] || tips.home;
+                title.textContent = tip[0];
+                message.textContent = tip[1];
+                link.href = tip[2];
+                link.textContent = tip[3];
+                wrapper.classList.remove("is-quiet");
+            };
+            let current = "home";
+            mascot.addEventListener("click", () => showTip(current));
+            hide?.addEventListener("click", () => wrapper.classList.add("is-quiet"));
+            link?.addEventListener("click", () => {
+                wrapper.classList.add("is-quiet");
             });
 
-
-            /* -----------------------------
-               CONNECTIONS
-            ----------------------------- */
-
-            for (
-                let i = 0;
-                i < nodes.length;
-                i++
-            ) {
-
-                for (
-                    let j = i + 1;
-                    j < nodes.length;
-                    j++
-                ) {
-
-                    const dx =
-                        nodes[i].x -
-                        nodes[j].x;
-
-                    const dy =
-                        nodes[i].y -
-                        nodes[j].y;
-
-                    const distance =
-                        Math.sqrt(
-                            dx * dx +
-                            dy * dy
-                        );
-
-
-                    if (distance < 145) {
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(
-                            nodes[i].x,
-                            nodes[i].y
-                        );
-
-                        ctx.lineTo(
-                            nodes[j].x,
-                            nodes[j].y
-                        );
-
-                        ctx.strokeStyle =
-                            colors.line;
-
-                        ctx.lineWidth = .7;
-
-                        ctx.stroke();
-
-                    }
-
-                }
-
+            const sections = Object.keys(tips).map(id => document.getElementById(id)).filter(Boolean);
+            if ("IntersectionObserver" in window && sections.length) {
+                const observer = new IntersectionObserver(entries => {
+                    const visible = entries.filter(entry => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                    if (visible) current = visible.target.id;
+                }, { rootMargin: "-25% 0px -55% 0px", threshold: [0, .15, .35, .6] });
+                sections.forEach(section => observer.observe(section));
             }
 
-
-            /* -----------------------------
-               DRAW NODES
-            ----------------------------- */
-
-            nodes.forEach(node => {
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    node.x,
-                    node.y,
-                    node.radius,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    colors.node;
-
-                ctx.fill();
-
-            });
-
-
-            /* -----------------------------
-               PARTICLES
-            ----------------------------- */
-
-            particles.forEach(particle => {
-
-                particle.x += particle.vx;
-                particle.y += particle.vy;
-
-
-                if (
-                    particle.x < 0 ||
-                    particle.x > window.innerWidth
-                ) {
-                    particle.vx *= -1;
-                }
-
-
-                if (
-                    particle.y < 0 ||
-                    particle.y > window.innerHeight
-                ) {
-                    particle.vy *= -1;
-                }
-
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    particle.x,
-                    particle.y,
-                    particle.size,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    colors.particle;
-
-                ctx.fill();
-
-            });
-
-
-            requestAnimationFrame(
-                animateCanvas
-            );
-
-        }
-
-
-        /* =========================================================
-           MOUSE INTERACTION
-        ========================================================== */
-
-        window.addEventListener(
-            "mousemove",
-            event => {
-
-                mouse.x =
-                    event.clientX;
-
-                mouse.y =
-                    event.clientY;
-
-            }
-        );
-
-
-        window.addEventListener(
-            "mouseleave",
-            () => {
-
-                mouse.x = null;
-                mouse.y = null;
-
-            }
-        );
-
-
-        /* =========================================================
-           RESIZE
-        ========================================================== */
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
-
-
-        resizeCanvas();
-
-        animateCanvas();
+            // Show one short introduction, then let the character wander quietly.
+            const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            window.setTimeout(() => wrapper.classList.add("is-quiet"), reduceMotion ? 6500 : 9000);
+        })();
 
     </script>
 
